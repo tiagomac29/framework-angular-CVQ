@@ -1,0 +1,9 @@
+<div class="container">
+<form align="center" name="formDesast" #formDesast="ngForm" (ngSubmit)="Enviar(formDesast) "id="formprincipal">
+<p><input placeholder="NOME(COMPLETO)" name="nome" [(ngModel)]="nome" required #nomeInput="ngModel" pattern="^[a-zA-ZÀ-ÿ\s]+$"></p>
+<p><input placeholder="NÚMERO DE CELULAR"  type="number" maxlength="11" type="text" name="telefone" [(ngModel)]="telefone" required pattern="^[0-9]{11}$" #telefoneInput="ngModel"></p>
+<p><input placeholder="CEP" name="cep" [(ngModel)]="cep" maxlength="8" required #cepInput="ngModel" pattern="^[0-9]{8}$" ></p>
+<p><textarea placeholder="O DESASTRE QUE ACONTECEU:" id="FormDesaste" minlength="20" maxlength="200" placeholder="O DESASTRE QUE ACONTECEU:" name="desastre" [(ngModel)]="desastre" required #desastreInput="ngModel"></textarea></p>
+<button type="submit" id="Enviar" [disabled]="formDesast.invalid"><strong>ENVIAR</strong></button>
+</form>
+</div>

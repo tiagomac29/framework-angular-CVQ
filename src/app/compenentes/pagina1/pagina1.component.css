@@ -1,0 +1,91 @@
+input[type="number"]::-webkit-inner-spin-button,  
+input[type="number"]::-webkit-outer-spin-button {  
+  -webkit-appearance: none;  
+  margin: 0;  
+}
+
+body{
+    background-color: aqua;
+}
+
+h1{
+    color: rgb(0, 152, 240);
+    
+}
+
+button{
+    background-color: rgb(49, 236, 58);
+    margin-left: 650px;
+    border-radius: 60%;
+    height: 100px;
+    width: 120px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+
+#FormDesaste{
+     width: 500px;
+     height: 300px;
+     resize: none;
+}
+
+form{
+    background-color: aliceblue;
+    box-shadow: 08px 08px 06px;
+    width: 1200px;
+    height: 820px;
+    border-radius: 10%;
+}
+
+input{
+    width: 500px;
+    height: 20px;
+}
+
+p{
+    margin-top: 62px;
+}
+
+.erro {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  input.ng-invalid.ng-touched,
+  textarea.ng-invalid.ng-touched {
+    border: 1.9px solid red;
+  }
+  
+  input, textarea {
+    padding: 8px;
+    font-size: 16px;
+    width: 80%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: rgb(49, 236, 58);
+    margin-left: 690px;
+    border-radius: 60%;
+    height: 100px;
+    width: 120px;
+    font-size: 20px;
+    cursor: pointer;
+}
+  
+  button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
