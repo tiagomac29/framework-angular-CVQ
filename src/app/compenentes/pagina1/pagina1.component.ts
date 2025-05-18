@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormBuilder, FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
+import { AlunosService } from '../../servicos/alunos.service';
+import { Aluno } from '../../modelo/aluno.modelo';
+
+
 @Component({
   selector: 'app-pagina1',
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule,],
   standalone: true,
   templateUrl: './pagina1.component.html',
-  styleUrls: ['./pagina1.component.css']  // <- corrigido aqui
+  styleUrls: ['./pagina1.component.css'] 
 })
 export class Pagina1Component {
   nome = '';
@@ -17,7 +21,18 @@ export class Pagina1Component {
   cep = '';
   desastre = '';
 
-  constructor(private http: HttpClient) {}
+  formDesast="ngForm"
+  mensagem: string = '';
+  erro:boolean = false;
+  alunos:Aluno[] = []
+
+  constructor(private http: HttpClient,private fb: FormBuilder,
+    private alunosService:AlunosService) {}
+  
+      ngOnInit() {
+    this.buscarTodosAlunos() ;
+  }
+
 
   Enviar(form: NgForm) {
     if (form.valid) {
@@ -43,5 +58,17 @@ export class Pagina1Component {
     } else {
       alert('Preencha todos os campos corretamente!');
     }
+  }
+
+  buscarTodosAlunos(){
+    this.alunosService.listarTodos().subscribe({
+      next: (resposta) => {
+        this.alunos = resposta.dados;
+      },
+      error:(resposta)=>{
+      this.erro = resposta?.erro||true;
+      this.mensagem = resposta?.mensagem||"Erro ao acessar a API"
+      }     
+    });
   }
 }
