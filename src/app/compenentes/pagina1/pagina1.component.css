@@ -98,3 +98,8 @@ p{
     background-color: rgb(255, 217, 0);
      transition-duration: 0.4s;
   }
+
+  #mensagemerro{
+    font-size: 35px;
+    text-shadow: 1.7px 1.7px 2px black ;
+  }
